@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Self Esteem Plugin",
+    "name_for_model": "self_esteem",
+    "description_for_human": "Plugin for getting summary of daily self-esteem sentence completions and five completions for -	If any of what I wrote this week is true, it might be helpful if I –.",
+    "description_for_model": "Plugin for getting summary of daily self-esteem sentence completions and five completions for -	If any of what I wrote this week is true, it might be helpful if I –.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:1234/.well-known/openapi.yaml",
+      "is_user_authenticated": false
+    },
+    "logo_url": "http://localhost:1234/.well-known/logo.png",
+    "contact_email": "wallace123@github.com",
+    "legal_info_url": "https://www.wallace123.com"
+  }

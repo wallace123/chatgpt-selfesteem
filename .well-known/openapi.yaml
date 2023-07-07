@@ -1,35 +1,22 @@
 openapi: 3.0.1
 info:
-  title: Shell Command Plugin
-  description: A plugin that allows the user to execute shell commands using ChatGPT.
+  title: Self Esteem Plugin
+  description: A plugin that summarizes daily sentence completions and provides 5 completions for, If any of what I wrote this week is true, it might be helpful if I.
   version: v1
 servers:
-  - url: http://localhost:3333
+  - url: http://localhost:1234
 paths:
   /run:
-    post:
-      operationId: runCommand
-      summary: Execute a shell command
-      requestBody:
-        description: The JSON object containing the shell commands to execute
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                commands:
-                  type: array
-                  items:
-                    type: string
-                  description: An array of shell commands to execute.  Can provide multiple commands or chain commands one after another.
+    get:
+      operationId: getPrompt
+      summary: Get the prompt 
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/runCommandResponse'
+                $ref: '#/components/schemas/promptResponse'
         '400':
           description: Bad Request
           content:
@@ -38,19 +25,19 @@ paths:
                 $ref: '#/components/schemas/errorResponse'
 components:
   schemas:
-    runCommandResponse:
+    promptResponse:
       type: object
       properties:
         output:
           type: array
           items:
             type: string
-          description: The output of the shell command as a list of lines.
+          description: The prompt for the sentence completions.
         error:
           type: array
           items:
             type: string
-          description: The error output of the shell command as a list of lines.
+          description: The error output.
     errorResponse:
       type: object
       properties:

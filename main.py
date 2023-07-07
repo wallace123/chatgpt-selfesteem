@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
-import subprocess
 import os
+from flask_cors import CORS
+from flask import Flask, request, jsonify, send_from_directory
+
 
 app = Flask(__name__)
 CORS(app)
@@ -14,21 +14,9 @@ def well_known(filename):
 
 @app.route('/run', methods=['GET'])
 def run_command():
-    data = request.get_json()
-    commands = data.get('commands')
-
-    if not commands:
-        return jsonify({'error': 'No commands provided'}), 400
-
-    output = {}
-    for i, command in enumerate(commands):
-        try:
-            result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-            output_lines = result.decode('utf-8').splitlines()
-            output[f"command_{i}"] = {'output': output_lines}
-        except subprocess.CalledProcessError as e:
-            error_lines = e.output.decode('utf-8').splitlines()
-            output[f"command_{i}"] = {'error': error_lines}
+    output = """
+You are an expert therapist that provides summaries on daily sef esteem sentence
+completions. I will provide what I wrote and you will summarize it."""
 
     return jsonify(output)
 

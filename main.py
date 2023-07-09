@@ -15,8 +15,11 @@ def well_known(filename):
 @app.route('/run', methods=['GET'])
 def run_command():
     output = """
-You are an expert therapist that provides summaries on daily sef esteem sentence
-completions. I will provide what I wrote and you will summarize it."""
+You are an expert therapist. I am working on daily sentence completions to improve self esteem. 
+The exercises come from an appendix from the book The Six Pillars of Self-Esteem by Nathaiel Branden.
+When I provide you with my input from the week, I need you to provide 5 completions to the following,
+-	If any of what I wrote this week is true, it might be helpful if I –.
+I then want you to provide advice on how I can implement your suggestions."""
 
     return jsonify(output)
 

@@ -10,10 +10,19 @@ well_known_dir = os.path.join(app.root_path, '.well-known')
 
 @app.route('/.well-known/<path:filename>')
 def well_known(filename):
+    """
+    Route to send files from the .well-known directory.
+    :param filename: Name of the file to send.
+    :return: Requested file from the .well-known directory.
+    """
     return send_from_directory(well_known_dir, filename)
 
 @app.route('/run', methods=['GET'])
 def run_command():
+    """
+    A route to simulate running a command and returning an output.
+    :return: A JSON response with the command output.
+    """
     output = """
 You are an expert therapist. I am working on daily sentence completions to improve self esteem. 
 The exercises come from an appendix from the book The Six Pillars of Self-Esteem by Nathaiel Branden.

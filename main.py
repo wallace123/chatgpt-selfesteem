@@ -1,6 +1,7 @@
+""" A simple flask app to simulate running a command and returning an output. """
 import os
 from flask_cors import CORS
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory
 
 
 app = Flask(__name__)
